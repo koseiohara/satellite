@@ -27,19 +27,13 @@ class AVHRR:
         rec = 1
         endian = 'LITTLE'
         recstep = 1
-        #form = dtype + '{}'.format(kind << 3)
-        #print('shape :', shape)
-        #print('recl : ', recl)
-        #print('form : ', form)
         satellite = filein(self.__satel_fname, shape, recl, rec, dtype, kind, endian, recstep)
 
         self.code[:,:] = satellite.fread()
-        #self.satellite[:,:] = np.array(self.satellite[:,:], dtype=int)
 
 
     def decode(self):
         for j in range(self.ny):
             for i in range(self.nx):
-                #print(self.satellite[j,i])
                 self.observe[j,i] = self.cnv_table[self.code[j,i]]
 
