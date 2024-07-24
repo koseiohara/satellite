@@ -34,7 +34,9 @@ ch5.decode()
 ch1.observe = ch1.observe * 0.01
 ch2.observe = ch2.observe * 0.01
 
-threshold = 0.15
+#threshold = 0.15
+#threshold = 0.1
+threshold = 0.07
 cloud = cloud_filter(ch2, threshold)
 
 zenith_cos = ZenithCosine(nx)
@@ -42,16 +44,16 @@ zenith_cos = ZenithCosine(nx)
 sst = sst_estimate(ch4, ch5, zenith_cos)
 
 #threshold = -0.005
-threshold = -0.004
+threshold = -0.002
 alb_diff = ch1.observe - ch2.observe
 land = land_filter(alb_diff, threshold)
 
 
-plot(ch1.observe, '../output/ch1_albedo.png', 'ch1',   0,  1, cloud, land)
-plot(ch2.observe, '../output/ch2_albedo.png', 'ch2',   0., 1, cloud, land)
-plot(ch4.observe, '../output/ch4_temperature.png', 'ch4', -20, 35, cloud, land)
-plot(ch5.observe, '../output/ch5_temperature.png', 'ch5', -20, 35, cloud, land)
-plot(sst, '../output/sst_estimate.png', 'AVHRR SST Estimate', -20, 35, cloud, land)
-plot(alb_diff   , '../output/alb_ch1mch2.png', 'Albedo ch1 - ch2', -0.01, 0.01, cloud, land)
+plot(ch1.observe, '../output/ch1_albedo.png'     , 'ch1'               ,      0.,      1, cloud, land)
+plot(ch2.observe, '../output/ch2_albedo.png'     , 'ch2'               ,      0.,    0.1, cloud, land)
+plot(ch4.observe, '../output/ch4_temperature.png', 'ch4'               ,     -35,     35, cloud, land)
+plot(ch5.observe, '../output/ch5_temperature.png', 'ch5'               ,     -35,     35, cloud, land)
+plot(sst        , '../output/sst_estimate.png'   , 'AVHRR SST Estimate',     -35,     35, cloud, land)
+plot(alb_diff   , '../output/alb_ch1mch2.png'    , 'Albedo ch1 - ch2'  , -0.0001, 0.0001, cloud, land)
 
 

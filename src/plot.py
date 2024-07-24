@@ -28,7 +28,7 @@ def plot(observe, figname, title, cmin, cmax, cloud, land):
     ax.contourf( land[::4,::4], colors='black')
 
     cont = ax.contourf(observe[::4,::4], cmap=cmap, levels=np.linspace(cmin, cmax, cnum), extend='both')
-    cbar = fig.colorbar(cont, ax=ax, pad=0.01, aspect=20, ticks=np.linspace(cmin, cmax, 6), extendrect=True)
+    cbar = fig.colorbar(cont, ax=ax, pad=0.01, aspect=20, ticks=np.linspace(cmin, cmax, 6))
 
     ax.set_title(title)
 
