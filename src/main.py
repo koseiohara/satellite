@@ -6,6 +6,8 @@ from filter      import cloud_filter, land_filter
 from ZenithAngle import ZenithCosine
 from get_sst     import sst_estimate
 from plot        import plot
+from sakaida     import sakaida
+from rmse        import rmse
 
 
 nx = 2048
@@ -49,11 +51,16 @@ alb_diff = ch1.observe - ch2.observe
 land = land_filter(alb_diff, threshold)
 
 
-plot(ch1.observe, '../output/ch1_albedo.png'     , 'ch1'               ,      0.,      1, cloud, land)
-plot(ch2.observe, '../output/ch2_albedo.png'     , 'ch2'               ,      0.,    0.1, cloud, land)
-plot(ch4.observe, '../output/ch4_temperature.png', 'ch4'               ,     -35,     35, cloud, land)
-plot(ch5.observe, '../output/ch5_temperature.png', 'ch5'               ,     -35,     35, cloud, land)
+real = sakaida()
+
+error = rmse(sst, real, cloud, land)
+
+
+#plot(ch1.observe, '../output/ch1_albedo.png'     , 'ch1'               ,      0.,      1, cloud, land)
+#plot(ch2.observe, '../output/ch2_albedo.png'     , 'ch2'               ,      0.,    0.1, cloud, land)
+#plot(ch4.observe, '../output/ch4_temperature.png', 'ch4'               ,     -35,     35, cloud, land)
+#plot(ch5.observe, '../output/ch5_temperature.png', 'ch5'               ,     -35,     35, cloud, land)
 plot(sst        , '../output/sst_estimate.png'   , 'AVHRR SST Estimate',     -35,     35, cloud, land)
-plot(alb_diff   , '../output/alb_ch1mch2.png'    , 'Albedo ch1 - ch2'  , -0.0001, 0.0001, cloud, land)
+#plot(alb_diff   , '../output/alb_ch1mch2.png'    , 'Albedo ch1 - ch2'  , -0.0001, 0.0001, cloud, land)
 
 
