@@ -24,10 +24,12 @@ def plot(observe, figname, title, cmin, cmax, cloud, land):
     #cmap = 'plasma'
     #cmap = plt.cm.gist_rainbow.reversed()
 
-    ax.contourf(cloud[::4,::4], colors='white')
-    ax.contourf( land[::4,::4], colors='black')
+    step = 1
 
-    cont = ax.contourf(observe[::4,::4], cmap=cmap, levels=np.linspace(cmin, cmax, cnum), extend='both')
+    ax.contourf(cloud[::step,::step], colors='white')
+    ax.contourf( land[::step,::step], colors='black')
+
+    cont = ax.contourf(observe[::step,::step], cmap=cmap, levels=np.linspace(cmin, cmax, cnum), extend='both')
     cbar = fig.colorbar(cont, ax=ax, pad=0.01, aspect=20, ticks=np.linspace(cmin, cmax, 6))
 
     ax.set_title(title)

@@ -70,6 +70,7 @@ plot(ch2.observe, '../output/ch2_albedo.png'     , 'ch2'               ,   0.,  
 plot(ch4.observe, '../output/ch4_temperature.png', 'ch4'               , -35., 35., cloud, land)
 plot(ch5.observe, '../output/ch5_temperature.png', 'ch5'               , -35., 35., cloud, land)
 plot(MCSST      , '../output/sst_estimate.png'   , 'AVHRR SST Estimate', -35., 35., cloud, land)
+plot(real       , '../output/oisst.png'          , 'OISST'             , -35., 35., cloud, land)
 plot(alb_diff   , '../output/alb_ch1mch2.png'    , 'Albedo ch1 - ch2'  ,  -1.,  1., cloud, land)
 plot(MCSST-real , '../output/sst_bias.png'       , 'Bias of MCSST'     , -10., 10., cloud, land)
 
