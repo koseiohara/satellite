@@ -18,6 +18,7 @@ SST is estimated by Multi-Channel SST (MCSST) method.
 
 - ZenithAngle.py  
   Compute the cosine of the zenith angle.
+<<<<<<< HEAD
   The nadir angle of the satellite can be computed by
   $$\alpha = 110.8 {\left(x - 1023.5\right) \over 2048}$$  
   where 2048 is the number of grids along the scan line and $`x`$ is the index of each grid.
